@@ -40,16 +40,8 @@ lb config \
   --apt-options "--yes --no-install-recommends" \
   --debian-installer none \
   --memtest none \
-  --bootloaders "grub-efi syslinux" \
   --binary-images iso-hybrid \
-  --bootappend-live "boot=live components quiet splash \
-    locales=el_GR.UTF-8 \
-    keyboard-layouts=gr \
-    keyboard-variants= \
-    timezone=Europe/Athens \
-    hostname=vicidial-admin \
-    username=admin \
-    autologin"
+  --bootappend-live "boot=live components quiet splash locales=el_GR.UTF-8 keyboard-layouts=gr keyboard-variants= timezone=Europe/Athens hostname=vicidial-admin username=admin autologin"
 
 echo "=== Adding package lists ==="
 mkdir -p config/package-lists

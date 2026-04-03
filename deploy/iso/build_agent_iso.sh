@@ -28,7 +28,8 @@ set -e
 
 VICIDIAL_URL="http://34.79.89.1/vicidial/vicidial.php"
 ASTERISK_HOST="34.79.89.1"
-MICROSIP_URL="https://www.microsip.org/pages/download/MicroSIP-3.21.4-full.exe"
+# MicroSIP latest release from GitHub
+MICROSIP_URL="https://github.com/IMAN4K/microsip/releases/latest/download/MicroSIP-Setup.exe"
 OUTPUT_DIR="/opt/vicidial-isos"
 BUILD_DIR="/opt/iso-build/agent"
 
@@ -60,16 +61,8 @@ lb config \
   --apt-options "--yes --no-install-recommends" \
   --debian-installer none \
   --memtest none \
-  --bootloaders "grub-efi syslinux" \
   --binary-images iso-hybrid \
-  --bootappend-live "boot=live components quiet splash \
-    locales=el_GR.UTF-8 \
-    keyboard-layouts=gr \
-    keyboard-variants= \
-    timezone=Europe/Athens \
-    hostname=vicidial-agent \
-    username=agent \
-    autologin"
+  --bootappend-live "boot=live components quiet splash locales=el_GR.UTF-8 keyboard-layouts=gr keyboard-variants= timezone=Europe/Athens hostname=vicidial-agent username=agent autologin"
 
 echo "=== Adding package lists ==="
 mkdir -p config/package-lists
